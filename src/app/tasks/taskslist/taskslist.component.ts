@@ -15,6 +15,10 @@ theHtmlString:any;
 todoList:any;
 value:Date;
 isData=false;
+url:any;
+reader:any;
+target:EventTarget;
+
 
   constructor(private elementRef: ElementRef) {
    this.todoList=[];
@@ -35,7 +39,20 @@ isData=false;
       this.todoList.push(this.userForm.get('name').value);
       this.isData=false;
       this.userForm.reset();
-} 
+}
+
+  readUrl(event) :any{
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = (imagesrc:any) => {
+      this.url = imagesrc.target.result;
+    }
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
+}
+
 
     deleteTask(indexVal):void{
     this.todoList.splice(indexVal);
