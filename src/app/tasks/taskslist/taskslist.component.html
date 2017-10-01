@@ -1,0 +1,80 @@
+<p-calendar [(ngModel)]="value" dateFormat="mm/dd/yy" [monthNavigator]="true" [yearNavigator]="true" yearRange="2017:2018"></p-calendar>
+<p-calendar [(ngModel)]="value" [timeOnly]="true"></p-calendar>
+
+<form [formGroup]="userForm" (keyup.enter)="onFormSubmit()">
+  Submit your dailt task Here: <textarea formControlName="name" rows="10" cols="80" placeholder="Enter Your TODO List Here."></textarea>
+</form> 
+<!-- <div *ngFor="let todolist of todoList; let i=index">
+    <span>{{i+1}} </span><p [innerHTML]="todolist"></p><span (click)="deleteTask(i)">Delete</span>
+
+</div> -->
+<br/>
+<!-- <div>Hi
+<input type="file" (change)="fileChange($event)"  placeholder="Upload file" accept=".pdf,.doc,.docx">
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-list"></span>Sortable Lists
+                    <div class="pull-right action-buttons">
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-cog" style="margin-right: 0px;"></span>
+                            </button>
+                            <ul class="dropdown-menu slidedown">
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-pencil"></span>Edit</a></li>
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-trash"></span>Delete</a></li>
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-flag"></span>Flag</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of todoList">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <label for="checkbox">
+                                    {{item}}
+                                </label>
+                            </div>
+                            <div class="pull-right action-buttons">
+                                <a ><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a class="trash"><span class="glyphicon glyphicon-trash" (click)="deleteTask(item)"></span></a>
+                                <a  class="flag"><span class="glyphicon glyphicon-flag"></span></a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div *ngIf="isData" style="text-align: center;">No Task list Found.</div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>
+                                Total Count <span class="label label-info">{{todoList.length}}</span></h6>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="pagination pagination-sm pull-right">
+                                <li class="disabled"><a href="javascript:void(0)">«</a></li>
+                                <li class="active"><a href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>
+                                <li><a href="http://www.jquery2dotnet.com">2</a></li>
+                                <li><a href="http://www.jquery2dotnet.com">3</a></li>
+                                <li><a href="http://www.jquery2dotnet.com">4</a></li>
+                                <li><a href="http://www.jquery2dotnet.com">5</a></li>
+                                <li><a href="javascript:void(0)">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+     

@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title | translate}}!
+  </h1>
+   
+<div class="drpAllign">
+Set Language: <select [(ngModel)]="selectedItem" (ngModelChange)="onChange($event)">
+<option *ngFor="let item of supportedLanguages" [value]="item.value">
+	{{item.display}} </option>	
+</select>	
+</div>
+
+</div>
+<h2>Here are some links to help you start: </h2>
+
+<!-- Link Here -->
+  <nav>
+    <a routerLink="/tasks">Tasks</a>
+    <a routerLink="/user">Users</a>
+  </nav>
+
+<p>
+  Translate With Pipe: <strong>{{ 'hello world' | translate }}</strong>
+</p>
+      
+<!-- Language selection Here -->
+<br/>
+ 
+
+
+<!--   <button *ngFor="let lang of supportedLanguages"
+  (click)="selectLang(lang.value)"
+  class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)">
+  {{ lang.display }}
+</button> -->
+
+
+<!-- Routing Here -->
+ <router-outlet></router-outlet>
+

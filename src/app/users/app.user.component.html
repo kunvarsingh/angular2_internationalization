@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>user app comeponen</div>
+
+<li *ngFor="let item of Items; let i = index">
+	<a (click)="seeDetails(item)">{{i+1}} - {{item}}</a>
+	<!-- <a [routerLink]="['/user',{{item}}]"> {{i}} - {{item}}</a> -->
+</li>
+
+<h3>Dynamic Columns</h3>
+<p-dataTable #dt [value]="dataTableValues" exportFilename="data">
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+</p-dataTable>
+<br/>
+<button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()">Load CSV</button>
+
+
+
