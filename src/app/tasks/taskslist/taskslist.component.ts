@@ -18,6 +18,7 @@ isData=false;
 url:any;
 reader:any;
 target:EventTarget;
+resultSet:any;
 
 
   constructor(private elementRef: ElementRef) {
@@ -40,6 +41,27 @@ target:EventTarget;
       this.isData=false;
       this.userForm.reset();
 }
+      changeListener($event: any) {
+        var self = this;
+        var file:File = $event.target.files[0];
+        var myReader:FileReader = new FileReader();
+        myReader.readAsText(file);
+        var resultSet = [];
+        myReader.onloadend = function(e){
+            // you can perform an action with data read here
+            // as an example i am just splitting strings by spaces
+            var columns = myReader.result.split(/\r\n|\r|\n/g);
+
+            for (var i = 0; i < columns.length; i++) {
+                resultSet.push(columns[i].split(' '));
+            }
+
+            self.resultSet=resultSet; 
+            console.log(self.resultSet)// probably dont need to do this atall
+            //self.complete.next(self.resultSet); // pass along the data which would be used by the parent component
+        };
+    }
+
 
   readUrl(event) :any{
   if (event.target.files && event.target.files[0]) {

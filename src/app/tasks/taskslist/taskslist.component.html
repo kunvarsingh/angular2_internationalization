@@ -6,6 +6,9 @@
 <img [src]="url" style="height: 20%;width:20%;border-radius: 50%">
 </div>
 
+File upload here:
+<input type="file" (change)="changeListener($event)" />
+
 <form [formGroup]="userForm" (keyup.enter)="onFormSubmit()">
   Submit your dailt task Here: <textarea formControlName="name" rows="10" cols="80" placeholder="Enter Your TODO List Here."></textarea>
 </form> 

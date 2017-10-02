@@ -10,13 +10,15 @@ import { HttpModule } from '@angular/http';
 import {TranslateModule} from 'ng2-translate';
 import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from './translate/index';
 import { LoggingService, Config } from 'loggerservice';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,TranslatePipe
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,BrowserAnimationsModule,
     RouterModule,FormsModule,
     routing ,HttpModule,CommonModule,ReactiveFormsModule,
      TranslateModule.forRoot()
